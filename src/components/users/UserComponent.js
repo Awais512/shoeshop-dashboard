@@ -13,7 +13,6 @@ const UserComponent = () => {
 
   useEffect(() => {
     dispatch(listUser());
-    console.log(users);
   }, [dispatch]);
 
   return (
