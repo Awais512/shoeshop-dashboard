@@ -1,7 +1,16 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Orders from "./Orders";
+import Message from "../LoadingError/Error";
+import Loading from "../LoadingError/Loading";
 
 const OrderMain = () => {
+  const dispatch = useDispatch();
+
+  const orderList = useSelector((state) => state.orderList);
+  const { loading, error, orders } = orderList;
+
+  console.log(orders);
   return (
     <section className="content-main">
       <div className="content-header">
@@ -37,7 +46,13 @@ const OrderMain = () => {
         </header>
         <div className="card-body">
           <div className="table-responsive">
-            <Orders />
+            {loading ? (
+              <Loading />
+            ) : error ? (
+              <Message variant="alert-danger">Error</Message>
+            ) : (
+              <Orders orders={orders} />
+            )}
           </div>
         </div>
       </div>

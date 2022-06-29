@@ -9,6 +9,7 @@ import {
   productListReducer,
   productUpdateReducer,
 } from "./Reducers/ProductReducers";
+import { orderListReducer } from "./Reducers/OrderReducres";
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,
@@ -18,6 +19,7 @@ const reducer = combineReducers({
   productCreate: productCreateReducer,
   productEdit: productEditReducer,
   productUpdate: productUpdateReducer,
+  orderList: orderListReducer,
 });
 
 // login
